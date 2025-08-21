@@ -205,7 +205,7 @@ export default function CreateCommandPage() {
             <div>
               <h3 className="font-semibold text-foreground mb-3">What Happens Next</h3>
               <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• Project registered in workspace/{project-name}/</li>
+                <li>• Project registered in workspace/[project-name]/</li>
                 <li>• Agent-todo folders created for selected agents</li>
                 <li>• Real-time progress tracking via /monitor</li>
                 <li>• Token optimization automatically enabled</li>
