@@ -148,7 +148,7 @@ export default function CreateCommandPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <CodeBlock language="bash" copy={false} className="text-sm inline-block">
-                        /create "{example.description}"
+{`/create "${example.description}"`}
                       </CodeBlock>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-3">

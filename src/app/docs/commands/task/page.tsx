@@ -155,7 +155,7 @@ export default function TaskCommandPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <CodeBlock language="bash" copy={false} className="text-sm inline-block">
-                        /task "{task.description}"
+{`/task "${task.description}"`}
                       </CodeBlock>
                       <Badge variant="outline" className="text-xs">
                         {task.category}
