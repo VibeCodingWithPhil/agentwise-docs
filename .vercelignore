@@ -1,0 +1,9 @@
+# Vercel ignore file
+.git
+.gitignore
+README.md
+DEPLOY_TO_VERCEL.md
+QUICK_DEPLOY.md
+deploy-to-vercel.sh
+.env*
+.DS_Store
