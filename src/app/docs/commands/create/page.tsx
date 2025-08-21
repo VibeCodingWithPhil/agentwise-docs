@@ -147,9 +147,7 @@ export default function CreateCommandPage() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <CodeBlock language="bash" copy={false} className="text-sm inline-block">
-{`/create "${example.description}"`}
-                      </CodeBlock>
+                      <CodeBlock language="bash" copy={false} className="text-sm inline-block">{`/create "${example.description}"`}</CodeBlock>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {example.features.map((feature, featureIndex) => (
