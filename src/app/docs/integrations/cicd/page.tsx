@@ -254,7 +254,7 @@ jobs:
       
       - name: Deploy to Vercel
         if: github.ref == 'refs/heads/main'
-        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}`}</CodeBlock>
+        run: vercel --prod --token=\${{ secrets.VERCEL_TOKEN }}`}</CodeBlock>
           </CardContent>
         </Card>
       </div>
