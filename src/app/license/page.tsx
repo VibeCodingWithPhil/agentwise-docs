@@ -1,66 +1,81 @@
-import { Scale, Shield, FileText, CheckCircle, AlertTriangle, Info } from "lucide-react"
+import { Scale, Shield, FileText, CheckCircle, XCircle, AlertTriangle, DollarSign, Lock } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-const licenseTerms = [
+const permittedUses = [
   {
-    section: "Permissions",
+    title: "Development Tool Usage",
+    description: "Use Agentwise to create end-user applications",
     icon: CheckCircle,
-    color: "green",
-    items: [
-      "Commercial use",
-      "Modification",
-      "Distribution",
-      "Private use"
-    ]
+    details: "Build commercial applications using Agentwise's output (not embedding Agentwise itself)",
+    feeRequired: false
   },
   {
-    section: "Conditions",
-    icon: Info,
-    color: "blue",
-    items: [
-      "License and copyright notice",
-      "State changes",
-      "Disclose source",
-      "Same license"
-    ]
+    title: "Internal Development",
+    description: "Use within your organization for development",
+    icon: CheckCircle,
+    details: "Internal use for creating applications and development purposes",
+    feeRequired: false
   },
   {
-    section: "Limitations",
-    icon: AlertTriangle,
-    color: "orange",
-    items: [
-      "Liability",
-      "Warranty"
-    ]
+    title: "Personal/Educational Use",
+    description: "Personal, educational, or research use",
+    icon: CheckCircle,
+    details: "Non-commercial personal projects and academic research",
+    feeRequired: false
   }
 ]
 
-const usageGuidelines = [
+const prohibitedUses = [
   {
-    title: "Commercial Projects",
-    description: "You can use Agentwise in commercial projects",
-    allowed: true,
-    details: "Feel free to use Agentwise to build applications for your clients or your own business."
+    title: "Competing Products",
+    description: "Creating multi-agent orchestration systems",
+    icon: XCircle,
+    details: "Cannot use source code to build competing products or similar AI coordination systems",
+    penalty: "$100,000 per violation"
   },
   {
-    title: "Modifications",
-    description: "You can modify the source code",
-    allowed: true,
-    details: "Customize Agentwise to fit your specific needs. We encourage improvements and contributions."
+    title: "Source Code Analysis",
+    description: "Studying code to create similar systems",
+    icon: XCircle,
+    details: "Cannot view, analyze, or reference source code for competitive products",
+    penalty: "Immediate termination + legal action"
   },
   {
-    title: "Distribution",
-    description: "You can distribute your modified versions",
-    allowed: true,
-    details: "Share your improvements with the community, but maintain the same license terms."
+    title: "Redistribution",
+    description: "Distributing or reselling the Software",
+    icon: XCircle,
+    details: "Cannot redistribute, sublicense, sell, or transfer Agentwise",
+    penalty: "$100,000 per violation"
   },
   {
-    title: "Attribution",
-    description: "You must provide attribution",
-    allowed: true,
-    details: "Include the original copyright notice and license in any distribution."
+    title: "Service Offering",
+    description: "Offering Agentwise as a service",
+    icon: XCircle,
+    details: "Cannot provide SaaS, PaaS, or managed service without commercial license",
+    penalty: "Commercial license required"
+  }
+]
+
+const commercialLicenses = [
+  {
+    type: "One-Time Perpetual",
+    price: "$25,000 USD",
+    description: "Permanent license for your organization",
+    features: ["Unlimited internal use", "Embed in products", "Redistribution rights", "Priority support"]
+  },
+  {
+    type: "Annual License",
+    price: "$10,000 USD/year",
+    description: "Yearly subscription for commercial use",
+    features: ["Annual renewal", "All commercial rights", "Regular updates", "Standard support"]
+  },
+  {
+    type: "Enterprise License",
+    price: "Contact for pricing",
+    description: "Custom terms for large organizations",
+    features: ["Custom terms", "Multiple entities", "White-label options", "Dedicated support"]
   }
 ]
 
@@ -70,88 +85,70 @@ export default function LicensePage() {
       {/* Header */}
       <div className="space-y-4">
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-accent/10 rounded-lg">
-            <Scale className="h-6 w-6 text-accent" />
+          <div className="p-3 bg-red-100 dark:bg-red-900/20 rounded-lg">
+            <Lock className="h-6 w-6 text-red-600" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold text-foreground">License</h1>
+            <h1 className="text-4xl font-bold text-foreground">Agentwise Proprietary License</h1>
             <p className="text-xl text-muted-foreground mt-2">
-              Agentwise is open source and available under the MIT License.
+              Version 1.0 - Proprietary software with controlled usage rights
             </p>
           </div>
         </div>
       </div>
 
-      {/* License Type */}
-      <Card className="bg-gradient-to-r from-accent/5 to-accent/10 border-accent/20">
+      {/* Important Notice */}
+      <Card className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-red-200 dark:border-red-800">
         <CardHeader>
-          <CardTitle className="text-accent-700 dark:text-accent-400 flex items-center gap-2">
-            <FileText className="h-5 w-5" />
-            MIT License
+          <CardTitle className="text-red-700 dark:text-red-400 flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5" />
+            IMPORTANT NOTICE
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="prose prose-sm dark:prose-invert max-w-none">
-            <p className="text-muted-foreground">
-              Copyright (c) 2024 Agentwise Contributors
+          <div className="space-y-3">
+            <p className="font-semibold">
+              Copyright (c) 2024-2025 Philip Ritmeester (@VibeCodingWithPhil)
             </p>
-            <p className="text-sm mt-4">
-              Permission is hereby granted, free of charge, to any person obtaining a copy
-              of this software and associated documentation files (the "Software"), to deal
-              in the Software without restriction, including without limitation the rights
-              to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-              copies of the Software, and to permit persons to whom the Software is
-              furnished to do so, subject to the following conditions:
+            <p className="text-sm text-muted-foreground">
+              This software is proprietary and confidential property of Philip Ritmeester. 
+              The Software is protected by copyright law and international treaties. 
+              Unauthorized use, reproduction, or distribution may result in severe civil 
+              and criminal penalties.
             </p>
-            <p className="text-sm mt-4">
-              The above copyright notice and this permission notice shall be included in all
-              copies or substantial portions of the Software.
-            </p>
-            <p className="text-sm mt-4 uppercase">
-              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-              IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-              FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-              AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-              LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-              OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-              SOFTWARE.
-            </p>
+            <Badge variant="destructive" className="text-sm">
+              All Rights Reserved
+            </Badge>
           </div>
         </CardContent>
       </Card>
 
-      {/* License Terms */}
+      {/* Permitted Uses */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">📋 License Terms</h2>
+        <h2 className="text-2xl font-semibold text-foreground">✅ Permitted Uses (No Fee Required)</h2>
         <p className="text-muted-foreground">
-          What you can and cannot do with Agentwise under the MIT License.
+          These uses are allowed without purchasing a commercial license.
         </p>
         
         <div className="grid md:grid-cols-3 gap-6">
-          {licenseTerms.map((term, index) => {
-            const IconComponent = term.icon
+          {permittedUses.map((use, index) => {
+            const IconComponent = use.icon
             return (
-              <Card key={index}>
+              <Card key={index} className="border-green-200 dark:border-green-800">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <IconComponent 
-                      className={`h-5 w-5 ${
-                        term.color === 'green' ? 'text-green-600' :
-                        term.color === 'blue' ? 'text-blue-600' :
-                        'text-orange-600'
-                      }`} 
-                    />
-                    {term.section}
+                    <IconComponent className="h-5 w-5 text-green-600" />
+                    {use.title}
                   </CardTitle>
+                  <CardDescription>{use.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
-                    {term.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-muted-foreground text-sm">• {item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-sm text-muted-foreground">{use.details}</p>
+                  {!use.feeRequired && (
+                    <Badge variant="secondary" className="mt-3 text-xs">
+                      Free for this use
+                    </Badge>
+                  )}
                 </CardContent>
               </Card>
             )
@@ -159,92 +156,185 @@ export default function LicensePage() {
         </div>
       </div>
 
-      {/* Usage Guidelines */}
+      {/* Prohibited Uses */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">✅ Usage Guidelines</h2>
+        <h2 className="text-2xl font-semibold text-foreground">🚫 Strictly Prohibited</h2>
         <p className="text-muted-foreground">
-          Clear guidelines on how you can use Agentwise in your projects.
+          These uses are strictly forbidden without a commercial license.
         </p>
         
-        <div className="space-y-3">
-          {usageGuidelines.map((guideline, index) => (
-            <Card key={index}>
-              <CardContent className="pt-6">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="font-semibold text-foreground">{guideline.title}</h3>
-                      <Badge variant={guideline.allowed ? "default" : "destructive"} className="text-xs">
-                        {guideline.allowed ? "Allowed" : "Not Allowed"}
-                      </Badge>
+        <div className="space-y-4">
+          {prohibitedUses.map((use, index) => {
+            const IconComponent = use.icon
+            return (
+              <Card key={index} className="border-red-200 dark:border-red-800">
+                <CardContent className="pt-6">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <IconComponent className="h-5 w-5 text-red-600" />
+                        <h3 className="font-semibold text-foreground">{use.title}</h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-2">{use.description}</p>
+                      <p className="text-xs text-muted-foreground">{use.details}</p>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-2">{guideline.description}</p>
-                    <p className="text-xs text-muted-foreground">{guideline.details}</p>
+                    <Badge variant="destructive" className="ml-4 text-xs">
+                      {use.penalty}
+                    </Badge>
                   </div>
-                </div>
+                </CardContent>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Commercial Licenses */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">💳 Commercial License Options</h2>
+        <p className="text-muted-foreground">
+          Required for embedding, competing products, or service offerings.
+        </p>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          {commercialLicenses.map((license, index) => (
+            <Card key={index} className="border-accent/20">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <DollarSign className="h-5 w-5 text-accent" />
+                  {license.type}
+                </CardTitle>
+                <CardDescription>
+                  <span className="text-2xl font-bold text-accent">{license.price}</span>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground mb-3">{license.description}</p>
+                <ul className="space-y-1">
+                  {license.features.map((feature, idx) => (
+                    <li key={idx} className="text-xs text-muted-foreground">
+                      • {feature}
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           ))}
         </div>
+        
+        <Card className="bg-accent/5 border-accent/20">
+          <CardContent className="pt-6">
+            <h4 className="font-semibold mb-2">To Obtain Commercial License:</h4>
+            <div className="space-y-2 text-sm">
+              <p>Contact Philip Ritmeester:</p>
+              <ul className="text-muted-foreground space-y-1">
+                <li>• Discord: @vibecodingwithphil</li>
+                <li>• GitHub: @VibeCodingWithPhil</li>
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-      {/* Third-Party Licenses */}
-      <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200 dark:border-blue-800">
+      {/* Enforcement */}
+      <Card className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border-orange-200 dark:border-orange-800">
         <CardHeader>
-          <CardTitle className="text-blue-700 dark:text-blue-400 flex items-center gap-2">
+          <CardTitle className="text-orange-700 dark:text-orange-400 flex items-center gap-2">
             <Shield className="h-5 w-5" />
-            Third-Party Licenses
+            Enforcement and Penalties
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground mb-4">
-            Agentwise uses various open-source libraries and tools. Each maintains its own license:
-          </p>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="space-y-4">
             <div>
-              <h4 className="font-semibold text-sm mb-2">Core Dependencies</h4>
-              <ul className="text-xs text-muted-foreground space-y-1">
-                <li>• Next.js - MIT License</li>
-                <li>• React - MIT License</li>
-                <li>• TypeScript - Apache-2.0 License</li>
-                <li>• Tailwind CSS - MIT License</li>
+              <h4 className="font-semibold mb-2">Automatic Termination</h4>
+              <p className="text-sm text-muted-foreground">
+                License automatically terminates upon any breach of terms.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">Damages</h4>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                <li>• Actual damages suffered</li>
+                <li>• Statutory damages of $100,000 per violation</li>
+                <li>• All legal fees and costs of enforcement</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-sm mb-2">Claude & AI Tools</h4>
-              <ul className="text-xs text-muted-foreground space-y-1">
-                <li>• Claude API - Anthropic Terms</li>
-                <li>• MCP Servers - Various Licenses</li>
-                <li>• Model Context Protocol - MIT License</li>
-                <li>• Local Model Support - Model-specific</li>
-              </ul>
+              <h4 className="font-semibold mb-2">Technical Protection</h4>
+              <p className="text-sm text-muted-foreground">
+                Software includes measures to track usage, detect violations, and disable functionality upon breach.
+              </p>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Questions */}
+      {/* FAQ */}
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold text-foreground">❓ Frequently Asked Questions</h2>
+        
+        <Card>
+          <CardContent className="pt-6">
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold mb-1">Can I use Agentwise to build commercial applications?</h4>
+                <p className="text-sm text-muted-foreground">
+                  Yes, you can use Agentwise as a tool to build applications for commercial sale, 
+                  as long as you don't embed Agentwise itself in the product.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-1">Can I learn from the code to build my own system?</h4>
+                <p className="text-sm text-muted-foreground">
+                  No. You cannot study our source code to build competing products. 
+                  Build your own system from scratch using AI prompting instead.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-1">What happens if I violate the license?</h4>
+                <p className="text-sm text-muted-foreground">
+                  The license terminates immediately, and you may face legal action including 
+                  damages of $100,000 per violation plus legal costs.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-1">Is this license open source?</h4>
+                <p className="text-sm text-muted-foreground">
+                  No. This is a proprietary license. The source is visible but strictly controlled.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Violations */}
       <Card>
         <CardHeader>
-          <CardTitle>Questions About Licensing?</CardTitle>
+          <CardTitle>Report License Violations</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">
-            If you have questions about the license or need clarification on usage rights,
-            please open an issue on our GitHub repository or contact the maintainers.
+          <p className="text-sm text-muted-foreground mb-4">
+            To report license violations or unauthorized use:
           </p>
-          <div className="mt-4">
-            <a 
-              href="https://github.com/yourusername/agentwise/issues" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-accent hover:underline text-sm"
-            >
-              Open an Issue on GitHub →
-            </a>
+          <div className="space-y-2">
+            <p className="text-sm">
+              • Email: <a href="mailto:legal@agentwise.dev" className="text-accent hover:underline">legal@agentwise.dev</a>
+            </p>
+            <p className="text-sm">
+              • GitHub: File a confidential security advisory
+            </p>
           </div>
         </CardContent>
       </Card>
+
+      {/* Last Updated */}
+      <div className="text-center text-sm text-muted-foreground border-t pt-8">
+        <p className="font-semibold">Last Updated: January 2025</p>
+        <p>License Version: 1.0</p>
+        <p className="mt-2">Copyright (c) 2024-2025 Philip Ritmeester. All Rights Reserved.</p>
+      </div>
     </div>
   )
 }
