@@ -30,7 +30,7 @@ export default function UpdatingPage() {
         <Package className="h-4 w-4" />
         <AlertTitle>Current Version</AlertTitle>
         <AlertDescription>
-          Agentwise v2.2.0 - Self-Improving Agents with 15-30% Token Optimization
+          Agentwise v2.3.1 - Enhanced Features with 15-30% Token Optimization
         </AlertDescription>
       </Alert>
 
@@ -103,7 +103,7 @@ echo "✅ Updated to latest version!"`}
 
       {/* Update Features */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">✨ Latest Features in v2.2.0</h2>
+        <h2 className="text-2xl font-semibold text-foreground">✨ Latest Features in v2.3.1</h2>
         <div className="grid md:grid-cols-2 gap-4">
           <Card>
             <CardHeader>

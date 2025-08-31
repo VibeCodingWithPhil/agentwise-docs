@@ -54,7 +54,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-violet-100 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 mb-6">
               <Sparkles className="h-4 w-4" />
-              <span className="text-sm font-medium">v2.2.0 - 335,998+ Lines of Code & 15-30% Token Optimization</span>
+              <span className="text-sm font-medium">v2.3.1 - 335,998+ Lines of Code & 15-30% Token Optimization</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Multi-Agent Orchestration
