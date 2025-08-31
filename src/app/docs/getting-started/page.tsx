@@ -42,7 +42,7 @@ export default function GettingStartedPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <CodeBlock language="text" showCopy>
+          <CodeBlock language="text" copy>
 {`Please set up Agentwise by:
 1. Clone: git clone https://github.com/VibeCodingWithPhil/agentwise.git ~/agentwise
 2. Install: cd ~/agentwise && npm install && npm run build

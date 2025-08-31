@@ -46,7 +46,7 @@ export default function UpdatingPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <CodeBlock language="bash" showCopy>
+          <CodeBlock language="bash" copy>
 {`# Run this command in Claude Code
 /update-agentwise`}
           </CodeBlock>
