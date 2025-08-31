@@ -23,7 +23,7 @@ export default function GettingStartedPage() {
             </p>
             <div className="flex gap-4 mt-3">
               <Badge variant="secondary">335,998+ Lines of Code</Badge>
-              <Badge variant="secondary">11 AI Agents</Badge>
+              <Badge variant="secondary">8 AI Agents</Badge>
               <Badge variant="secondary">99.3% Token Reduction</Badge>
             </div>
           </div>
