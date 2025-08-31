@@ -30,7 +30,7 @@ export default function UpdatingPage() {
         <Package className="h-4 w-4" />
         <AlertTitle>Current Version</AlertTitle>
         <AlertDescription>
-          Agentwise v2.2.0 - Self-Improving Agents with 99.3% Token Optimization
+          Agentwise v2.2.0 - Self-Improving Agents with 15-30% Token Optimization
         </AlertDescription>
       </Alert>
 
@@ -122,7 +122,7 @@ echo "✅ Updated to latest version!"`}
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Badge className="bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400">NEW</Badge>
-                <CardTitle className="text-lg">99.3% Token Optimization</CardTitle>
+                <CardTitle className="text-lg">15-30% Token Optimization</CardTitle>
               </div>
             </CardHeader>
             <CardContent>

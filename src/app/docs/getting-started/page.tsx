@@ -24,7 +24,7 @@ export default function GettingStartedPage() {
             <div className="flex gap-4 mt-3">
               <Badge variant="secondary">335,998+ Lines of Code</Badge>
               <Badge variant="secondary">8 AI Agents</Badge>
-              <Badge variant="secondary">99.3% Token Reduction</Badge>
+              <Badge variant="secondary">15-30% Token Reduction</Badge>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ Full setup instructions: https://github.com/VibeCodingWithPhil/agentwise/blob/ma
                 <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
                 <div>
                   <h3 className="font-medium">Token Optimization</h3>
-                  <p className="text-sm text-muted-foreground">99.3% reduction with Context 3.0 + Knowledge Graph</p>
+                  <p className="text-sm text-muted-foreground">15-30% reduction with Context 3.0 + Knowledge Graph</p>
                 </div>
               </div>
             </CardContent>

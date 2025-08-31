@@ -74,7 +74,7 @@ const features = [
   },
   {
     title: "Token Optimization", 
-    description: "Verified 99.3% reduction with Context 3.0 + Knowledge Graph"
+    description: "Verified 15-30% reduction with Context 3.0 + Knowledge Graph"
   },
   {
     title: "Real-time Monitoring",
