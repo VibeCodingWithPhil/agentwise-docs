@@ -40,7 +40,7 @@ graph TB
     
     Trigger -->|Scheduled| Time[Every 30 min]
     Trigger -->|On Change| Watch[File Watcher]
-    Trigger -->|Manual| Command[/backup]
+    Trigger -->|Manual| Command[Manual Backup]
     
     Time --> Process[Backup Process]
     Watch --> Process
